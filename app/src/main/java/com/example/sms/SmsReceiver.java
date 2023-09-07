@@ -11,8 +11,8 @@ import android.widget.Toast;
 public class SmsReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-//        if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(intent.getAction())) {
-//            for (SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
+//        if (Telephony.SmsAdapter.Intents.SMS_RECEIVED_ACTION.equals(intent.getAction())) {
+//            for (SmsMessage smsMessage : Telephony.SmsAdapter.Intents.getMessagesFromIntent(intent)) {
 //                String messageBody = smsMessage.getMessageBody();
 //                String number = smsMessage.getOriginatingAddress();
 //
@@ -44,6 +44,10 @@ public class SmsReceiver extends BroadcastReceiver {
 
             Toast.makeText(context,"SMS Received: "+ message+", From: "+number,
                     Toast.LENGTH_LONG).show();
+
+            Intent in=new Intent(context, MainActivity.class);
+            in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            context.startActivity(in);
 
         }
     }
