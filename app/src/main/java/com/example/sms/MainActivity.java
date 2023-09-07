@@ -41,9 +41,13 @@ public class MainActivity extends AppCompatActivity {
         //checkForSmsReceivePermissions();
 
         if (checkPermissions()){
-            smsListView = findViewById(R.id.smsListView);
-            displaySms();
+            init();
         }
+    }
+
+    private void init(){
+        smsListView = findViewById(R.id.smsListView);
+        displaySms();
     }
 
     private void displaySms() {
@@ -122,10 +126,9 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }
-                    // Show permissionsDenied
-                    //updateViews();
-                    Toast.makeText(this, "Permissions denied: "+ permissionsDenied,
-                            Toast.LENGTH_LONG).show();
+                    if (permissionsDenied.equals("")){
+                        init();
+                    }
                 }
                 return;
             }
