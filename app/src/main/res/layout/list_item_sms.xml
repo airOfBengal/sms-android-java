@@ -8,7 +8,8 @@
         android:id="@+id/senderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sender" />
+        android:text="@string/sender"
+        android:paddingTop="8dp"/>
 
     <TextView
         android:id="@+id/messageTextView"
